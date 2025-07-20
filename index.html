@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Validation Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 300px;
+            padding: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 2px 2px 7px 0 rgb(0, 0, 0, 0.1);
+            outline: none;
+            color: #333;
+            transition: border-color 0.3s ease;
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        input:focus {
+            border-color: #4a90e2;
+        }
+
+        input:invalid {
+            animation: error 0.3s forwards;
+            color: #e74c3c;
+            border-color: #e74c3c;
+        }
+
+        @keyframes error {
+            25% {
+                transform: translateX(5px);
+            }
+
+            50% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+
+            90% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <input type="text" name="numbers"  pattern="\d+" placeholder="Numbers only or invalid">
+        <input type="text" name="uppercase"  pattern="[A-Z]+" placeholder="Only UPPERCASE letters or invalid">
+        <input type="text" name="lowercase"  pattern="[a-z]+" placeholder="Only lowercase letters or invalid">
+        <input type="text" name="no-numbers"  pattern="[^0-9]*" placeholder="No numbers allowed or invalid">
+        <input type="text" name="color"  pattern="^#[0-9A-Fa-f]{6}" placeholder="Hex color code only or invalid">
+    </form>
+</body>
+
+</html>
